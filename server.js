@@ -23,10 +23,4 @@ app.use(cors());
 app.use("/api/v1", adminRouter);
 
 
-app.get("/", (req, res) => {
-  res.send("Test API");
-});
-
-
-
 app.listen(PORT, () => console.log(`Server Started on Port ${PORT}`));
