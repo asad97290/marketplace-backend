@@ -1,20 +1,12 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const nodemailer = require("nodemailer");
 const verificationToken = require("generate-sms-verification-code");
 const sendEmail = require("../helpers/sendEmail");
 const { User, UserCredential } = require("../models/User");
 const config = require("../config/configBasic");
 const mongoose = require("mongoose");
 
-const transport = nodemailer.createTransport({
-  host: config.mailTrap.host,
-  port: config.mailTrap.port,
-  auth: {
-    user: config.mailTrap.auth.user,
-    pass: config.mailTrap.auth.pass,
-  },
-});
+
 
 const userRegister = async (req, res) => {
   // start transaction session
@@ -203,7 +195,6 @@ const verifyEmail = async (req, res) => {
   }
 };
 
-//@desc Login User and get Token
 const userLogin = async (req, res) => {
   const { email, password } = req.body;
   try {
