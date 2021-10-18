@@ -2,7 +2,6 @@ const express = require("express");
 const connectDB = require("./src/config/db");
 const app = express();
 var cors = require("cors");
-const upload = require("express-fileupload");
 const PORT = process.env.PORT || 5000;
 const adminRouter = require("./src/routes/adminRouter");
 require("dotenv").config();
@@ -11,8 +10,6 @@ require("dotenv").config();
 connectDB();
 
 
-//File Upload Middleware
-app.use(upload());
 
 //Init Middleware
 app.use(express.urlencoded({ limit: "10mb", extended: false }));
