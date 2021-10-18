@@ -12,8 +12,8 @@ router.post(
   user.userRegister
 );
 // verify email after registering user
-router.post(
-  "/auth/verify/email",
+router.get(
+  "/auth/verify/email/:token",
   ...validationMiddleware.verifyEmail,
   user.verifyEmail
 );
